@@ -39,6 +39,8 @@ def send_email(to: str, subject: str, body: str) -> str:
     return f"Email sent to {to} with subject {subject} and body {body}"
 
 
+# NOTE: This tool only validates credentials; it cannot "log out" / unauthenticate a user once authenticated (you need a separate logout tool or state reset).
+# Even if you ask the LLM to log out, it will hallucinate and say you are now logged out, when in fact the state of `authenticated` is still set to `True`.
 @tool
 def authenticate(email: str, password: str, runtime: ToolRuntime) -> Command:
     """Authenticate the user with the given email and password"""
