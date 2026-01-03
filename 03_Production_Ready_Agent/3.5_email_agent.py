@@ -63,7 +63,7 @@ def authenticate(email: str, password: str, runtime: ToolRuntime) -> Command:
 
 
 @wrap_model_call
-async def dynamic_tool_call(
+async def dynamic_tool_call( # `wrap_model_call` needs an `async` here for bug free execution on LangSmith Studio
     request: ModelRequest, handler: Callable[[ModelRequest], ModelResponse]
 ) -> ModelResponse:
     """Allow read inbox and send email tools only if user provides correct email and password"""
@@ -76,7 +76,7 @@ async def dynamic_tool_call(
         tools = [authenticate]
 
     request = request.override(tools=tools)
-    return await handler(request)
+    return await handler(request) # `wrap_model_call` needs an `await` here for bug free execution on LangSmith Studio
 
 
 authenticated_prompt = "You are a helpful assistant that can check the inbox and send emails."
