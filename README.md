@@ -4,6 +4,17 @@ Foundational course materials from [LangChain Academy](https://academy.langchain
 
 ---
 
+Course:
+- https://academy.langchain.com/courses/take/foundation-introduction-to-langchain-python/
+
+Chat LangChain:
+- https://chat.langchain.com/
+
+Documentation:
+- https://docs.langchain.com/oss/python/langchain/overview
+
+---
+
 ### Module 1: Create Agent
 
 - Foundational models
